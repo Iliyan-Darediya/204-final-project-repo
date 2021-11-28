@@ -70,3 +70,9 @@ class Card{
     }
 }
 
+let StefanMovies = [Specter,NoTimeToDie,EmpireStrikesBack]
+let JudeMovies = [PhantomMenanace,ReturnOFTheJedi,NoTimeToDie]
+
+let matcher = Matcher(movies1: StefanMovies, movies2: JudeMovies)
+let selectedMovie = Card(movie: matcher.generate())
+print(selectedMovie.data)
