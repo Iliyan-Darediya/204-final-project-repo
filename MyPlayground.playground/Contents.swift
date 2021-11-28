@@ -6,3 +6,6 @@ struct Movie:Equatable{
     let IMDB_ratting : Double
     let description : String
 }
+
+var movies = [Movie]()
+
