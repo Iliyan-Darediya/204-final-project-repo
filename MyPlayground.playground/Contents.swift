@@ -1,5 +1,6 @@
 import UIKit
 
+//Defining the type Movie that adheres to the protocol Equatabale
 struct Movie:Equatable{
     let name:String
     let release_date : String
@@ -7,8 +8,10 @@ struct Movie:Equatable{
     let description : String
 }
 
+//Initialize an empty array of type Movie
 var movies = [Movie]()
 
+//Defining a few movies
 let Specter = Movie(name: "Specter", release_date: "November 6, 2015", IMDB_ratting: 6.8, description: "James Bond receives an obscure message from M about a sinister organisation, 'SPECTRE'. With the help of Madeleine, he uncovers the conspiracy, only to face an ugly truth.")
 
 let NoTimeToDie = Movie(name: "No Time to Die", release_date: "September 30, 2021", IMDB_ratting: 7.4, description: "James Bond is enjoying a tranquil life in Jamaica after leaving active service. However, his peace is short-lived as his old CIA friend, Felix Leiter, shows up and asks for help.")
@@ -21,6 +24,7 @@ let ReturnOFTheJedi = Movie(name: "Star Wars: Return of the Jedi", release_date:
 
 let PhantomMenanace = Movie(name: "Star Wars: The Phantom Menace ", release_date: "May 19, 1999", IMDB_ratting: 6.5, description: "Jedi Knights Qui-Gon Jinn and Obi-Wan Kenobi set out to stop the Trade Federation from invading Naboo. While travelling, they come across a gifted boy, Anakin, and learn that the Sith have returned.")
 
+//Filling the movies array
 movies.append(NoTimeToDie)
 movies.append(Specter)
 movies.append(NewHope)
@@ -28,17 +32,22 @@ movies.append(EmpireStrikesBack)
 movies.append(ReturnOFTheJedi)
 movies.append(PhantomMenanace)
 
+//Defining class Matcher
 class Matcher{
+    //Define two like Movie variables with optional type of Movie
     let likedMovies1:[Movie]?
     let likedMovies2:[Movie]?
     
+    //Initilize likedMovies
     init(movies1:[Movie]?, movies2:[Movie]?) {
         self.likedMovies1 = movies1
         self.likedMovies2 = movies2
     }
 }
 
+//Extend Matcher to include generate function
 extension Matcher{
+    //iterate through both likedMovies and check if the movies are same
     func generate() -> Movie {
         for movie1 in likedMovies1!{
             for movie2 in likedMovies2!{
@@ -51,17 +60,21 @@ extension Matcher{
     }
 }
 
+//Defining class Card
 class Card{
+    //Defining the stored values
     let movieName:String
     let movieRelease : String
     let movieRatting : Double
     let movieDescription : String
     
+    //Defining a computed property data
     var data:  String  {
         get{
             return "The movie \(movieName) was released on \(movieRelease). It's summary is \(movieDescription) It was so liked by fans that it's IMDB ratting is \(movieRatting)"
         }
     }
+    //Intilizer to initialize the card with the movie data
     init(movie:Movie) {
         self.movieName = movie.name
         self.movieRelease = movie.release_date
@@ -70,9 +83,12 @@ class Card{
     }
 }
 
+//instansiate likedMovies for Stefan and Jude
 let StefanMovies = [Specter,NoTimeToDie,EmpireStrikesBack]
 let JudeMovies = [PhantomMenanace,ReturnOFTheJedi,NoTimeToDie]
 
+//Initialize the class Matcher
 let matcher = Matcher(movies1: StefanMovies, movies2: JudeMovies)
+//Store the selected Movie after running matcher.generate
 let selectedMovie = Card(movie: matcher.generate())
 print(selectedMovie.data)
