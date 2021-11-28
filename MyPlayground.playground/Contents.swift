@@ -50,3 +50,23 @@ extension Matcher{
         return movies.randomElement()!
     }
 }
+
+class Card{
+    let movieName:String
+    let movieRelease : String
+    let movieRatting : Double
+    let movieDescription : String
+    
+    var data:  String  {
+        get{
+            return "The movie \(movieName) was released on \(movieRelease). It's summary is \(movieDescription) It was so liked by fans that it's IMDB ratting is \(movieRatting)"
+        }
+    }
+    init(movie:Movie) {
+        self.movieName = movie.name
+        self.movieRelease = movie.release_date
+        self.movieRatting = movie.IMDB_ratting
+        self.movieDescription = movie.description
+    }
+}
+
