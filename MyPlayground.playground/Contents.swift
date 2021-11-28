@@ -27,3 +27,13 @@ movies.append(NewHope)
 movies.append(EmpireStrikesBack)
 movies.append(ReturnOFTheJedi)
 movies.append(PhantomMenanace)
+
+class Matcher{
+    let likedMovies1:[Movie]?
+    let likedMovies2:[Movie]?
+    
+    init(movies1:[Movie]?, movies2:[Movie]?) {
+        self.likedMovies1 = movies1
+        self.likedMovies2 = movies2
+    }
+}
