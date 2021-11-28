@@ -37,3 +37,16 @@ class Matcher{
         self.likedMovies2 = movies2
     }
 }
+
+extension Matcher{
+    func generate() -> Movie {
+        for movie1 in likedMovies1!{
+            for movie2 in likedMovies2!{
+                if(movie1 == movie2){
+                    return movie1
+                }
+            }
+        }
+        return movies.randomElement()!
+    }
+}
