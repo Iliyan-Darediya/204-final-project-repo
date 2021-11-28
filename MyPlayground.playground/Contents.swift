@@ -32,11 +32,19 @@ movies.append(EmpireStrikesBack)
 movies.append(ReturnOFTheJedi)
 movies.append(PhantomMenanace)
 
-//Defining class Matcher
-class Matcher{
+//Defining protocol Matchable
+protocol Matchable{
+    var likedMovies1:[Movie]? { get }
+    var likedMovies2:[Movie]? { get }
+    func generate() -> Movie
+}
+
+//Defining class Matcher that adheres to the Matchable protocol
+class Matcher:Matchable{
+    
     //Define two like Movie variables with optional type of Movie
-    let likedMovies1:[Movie]?
-    let likedMovies2:[Movie]?
+    var likedMovies1:[Movie]?
+    var likedMovies2:[Movie]?
     
     //Initilize likedMovies
     init(movies1:[Movie]?, movies2:[Movie]?) {
