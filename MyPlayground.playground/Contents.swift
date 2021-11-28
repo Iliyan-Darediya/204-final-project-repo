@@ -1,3 +1,10 @@
+/*
+  Document Details:
+  Course:         DGL-204
+  Final Project:  Milestone 2
+  Author:         Iliyan Darediya
+  Date:           28 Nov 2021
+*/
 import UIKit
 
 //Defining the type Movie that adheres to the protocol Equatabale
